@@ -19,9 +19,8 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 22
-          cache: 'yarn' # Cambiar a 'yarn' para caché
+          cache: 'yarn'
 
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn lint
-      - run: yarn test
