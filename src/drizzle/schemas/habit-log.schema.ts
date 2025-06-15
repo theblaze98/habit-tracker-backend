@@ -1,9 +1,4 @@
-import {
-  pgTable,
-  uuid,
-  boolean,
-  date,
-} from 'drizzle-orm/pg-core'
+import { pgTable, uuid, boolean, date, text } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm'
 import { habits } from './habit.schema'
 
