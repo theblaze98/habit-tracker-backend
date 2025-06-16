@@ -1,5 +1,5 @@
 import { pgTable, text, timestamp, uuid, boolean } from 'drizzle-orm/pg-core'
-import { relations } from 'drizzle-orm'
+import { relations, InferSelectModel, InferInsertModel } from 'drizzle-orm'
 import { users } from './user.schema'
 import { habitLogs } from './habit-log.schema'
 
@@ -19,3 +19,7 @@ export const habitsRelations = relations(habits, ({ one, many }) => ({
   user: one(users, { fields: [habits.userId], references: [users.id] }),
   logs: many(habitLogs),
 }))
+
+export type Habit = InferSelectModel<typeof habits>
+export type HabitCreate = InferInsertModel<typeof habits>
+export type HabitUpdate = Partial<Omit<Habit, 'id' | 'createdAt'>>
