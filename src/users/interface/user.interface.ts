@@ -3,5 +3,5 @@ export interface IUser {
   username: string
   email: string
   password: string
-  createdAt: Date | null
+  createdAt?: Date | null
 }
